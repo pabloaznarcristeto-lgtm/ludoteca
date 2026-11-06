@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Ludoteca">
+<meta name="theme-color" content="#F6F4EF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14181F" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAADt0lEQVR42u3dMXITMRiGYUVjevr0FLkBdDkFwyU4AgVH4BIMF4E7cAp6Goo0mUkmJrtr+f+k5y1tF7b06lvv6t/9b27v7hvwHN0QgBwgB8gBcoAcIAfIAXKAHCAHQA6QA+QAOUAOkAPkADlADpADIAfIAXKAHCAHyAFygBwgB8gBkAPkwOs51f+Kv399n3X0373/VPnr3dR87NPEQgSJUk6OBbUoq0ghORbXoqAinRmOqnWTgxZlI6QzQ4RUlIMZxUepM4MfteRgRsSIuXyOSnKIjZRx68zgh8MKasshNrLGUHKgXf/y+VHKf/jy5umLP7/+rTayfz5+e/ri2x+fW85l9VOQyM9q8fitIoo8q8Xjt45ShBxntCilyAtaJCrSpzFj8+cHm7H589PKsfkPx7aZHu/Htpne7MeYc5Y+U2Zcy489GVA5P5zKIlCO/Ut/THjsX/plw0NyIE2Ooxb9pcPjqEVfMzwkB8gBcoAcIAfIAXK8gqN2Vi+9Q3vUzmrNHVrJgUA59i/6MYUd+xd92cIOyYFMOfYs/ZH1YHuWfuV6sOrJsW2Ox1cKbpvj4pWCAYeV1870tWpIXzvT9WtIMwqMH+b77Bbr1avPH+b77Bar6vOhipS6b+UFRVK0yJOj7P1L0fHgVBbkwOKHlTbqiY6eCXCixctvrazIiRb/87E1FenMaPm9L8hx5WdGL+hHZwY/yAFyXHjpLxUekgPkOG7RrxMekgPkADlADpAD5AA52hz9BtbZoZUcIMdBi36pwg7JAXIcsfRXqwfrOmExgxy7ZnrNGtLT4p30zm6xqj5vFKEFOcSD/xwgBxxW2rB+re3CXUFSnh+RJ0dKv9aU/reTyJHSrzWl/+08/zlS+rWm9L+dR47B/VoH9wsr7kefz4zxfqT0v3UqiwXkSOnXmtL/VnJgATlS+rWm9L+VHCAHyAFygBwgB8jRUvpRXHqHNqX/reTAMnKk9GtN6X8rObCMHCn9WlP63xaVY/OzO1P6tQ7ufzvmWah9vk5616ohTel/2yYrME7p15rS/3bCWxNS+rWm9L89y83t3X1zS2pb8SHuTmURIseandJyx1ByoIwcwiNo9Pr0v5AZDiuYRQ7hETFifalfy4yYwwo/io9SX/aXM6OVunzeXFmPWjbdWDCjenKIkIKLpJwcyypSMDuLyrGIKMUPpgFyQPU5yAFygBwgB8gBkAPkADlADpAD5AA5QA6QA+QAyAFygBwgB8gBcoAcIAfIAXKAHAA5QA6QA+QAOVCPf8XuY4gEqCN2AAAAAElFTkSuQmCC">
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAADt0lEQVR42u3dMXITMRiGYUVjevr0FLkBdDkFwyU4AgVH4BIMF4E7cAp6Goo0mUkmJrtr+f+k5y1tF7b06lvv6t/9b27v7hvwHN0QgBwgB8gBcoAcIAfIAXKAHCAHQA6QA+QAOUAOkAPkADlADpADIAfIAXKAHCAHyAFygBwgB8gBkAPkwOs51f+Kv399n3X0373/VPnr3dR87NPEQgSJUk6OBbUoq0ghORbXoqAinRmOqnWTgxZlI6QzQ4RUlIMZxUepM4MfteRgRsSIuXyOSnKIjZRx68zgh8MKasshNrLGUHKgXf/y+VHKf/jy5umLP7/+rTayfz5+e/ri2x+fW85l9VOQyM9q8fitIoo8q8Xjt45ShBxntCilyAtaJCrSpzFj8+cHm7H589PKsfkPx7aZHu/Htpne7MeYc5Y+U2Zcy489GVA5P5zKIlCO/Ut/THjsX/plw0NyIE2Ooxb9pcPjqEVfMzwkB8gBcoAcIAfIAXK8gqN2Vi+9Q3vUzmrNHVrJgUA59i/6MYUd+xd92cIOyYFMOfYs/ZH1YHuWfuV6sOrJsW2Ox1cKbpvj4pWCAYeV1870tWpIXzvT9WtIMwqMH+b77Bbr1avPH+b77Bar6vOhipS6b+UFRVK0yJOj7P1L0fHgVBbkwOKHlTbqiY6eCXCixctvrazIiRb/87E1FenMaPm9L8hx5WdGL+hHZwY/yAFyXHjpLxUekgPkOG7RrxMekgPkADlADpAD5AA52hz9BtbZoZUcIMdBi36pwg7JAXIcsfRXqwfrOmExgxy7ZnrNGtLT4p30zm6xqj5vFKEFOcSD/xwgBxxW2rB+re3CXUFSnh+RJ0dKv9aU/reTyJHSrzWl/+08/zlS+rWm9L+dR47B/VoH9wsr7kefz4zxfqT0v3UqiwXkSOnXmtL/VnJgATlS+rWm9L+VHCAHyAFygBwgB8jRUvpRXHqHNqX/reTAMnKk9GtN6X8rObCMHCn9WlP63xaVY/OzO1P6tQ7ufzvmWah9vk5616ohTel/2yYrME7p15rS/3bCWxNS+rWm9L89y83t3X1zS2pb8SHuTmURIseandJyx1ByoIwcwiNo9Pr0v5AZDiuYRQ7hETFifalfy4yYwwo/io9SX/aXM6OVunzeXFmPWjbdWDCjenKIkIKLpJwcyypSMDuLyrGIKMUPpgFyQPU5yAFygBwgB8gBkAPkADlADpAD5AA5QA6QA+QAyAFygBwgB8gBcoAcIAfIAXKAHAA5QA6QA+QAOVCPf8XuY4gEqCN2AAAAAElFTkSuQmCC">
+<title>Ludoteca</title>
+<style>
+:root{
+  --bg:#F6F4EF; --card:#FFFFFF; --card2:#EEEBE3; --text:#1B1F27; --muted:#6B7180; --line:#E2DED4;
+  --accent:#1B2A41; --accentText:#FFFFFF;
+  --p:#2F6FED; --pSoft:#E3ECFD; --l:#D63B6E; --lSoft:#FBE3EB; --draw:#8A8F99;
+  --ok:#2E8B57; --danger:#C0392B; --yellow:#F2B705;
+  --r:16px; --shadow:0 1px 2px rgba(0,0,0,.06),0 4px 14px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#14181F; --card:#1D232D; --card2:#262D39; --text:#ECEFF4; --muted:#9AA3B2; --line:#2D3542;
+    --accent:#E9E4D8; --accentText:#14181F;
+    --p:#6B9BFF; --pSoft:#1E2B45; --l:#FF6F9A; --lSoft:#43222E; --draw:#9AA3B2;
+    --shadow:none;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#14181F; --card:#1D232D; --card2:#262D39; --text:#ECEFF4; --muted:#9AA3B2; --line:#2D3542;
+  --accent:#E9E4D8; --accentText:#14181F;
+  --p:#6B9BFF; --pSoft:#1E2B45; --l:#FF6F9A; --lSoft:#43222E; --draw:#9AA3B2; --shadow:none;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.4 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;-webkit-text-size-adjust:100%}
+body{min-height:100vh;padding-bottom:calc(84px + env(safe-area-inset-bottom))}
+button,input,select,textarea{font:inherit;color:inherit}
+button{touch-action:manipulation;cursor:pointer}
+header.top{position:sticky;top:0;z-index:5;background:var(--bg);padding:calc(env(safe-area-inset-top) + 10px) 16px 8px;display:flex;align-items:center;gap:8px}
+header.top h1{font-size:28px;line-height:1.15;margin:0;flex:1;font-weight:800;letter-spacing:-.02em}
+.back{border:0;background:var(--card2);border-radius:999px;min-width:44px;height:44px;font-size:22px;font-weight:700}
+main{padding:0 16px 16px;max-width:640px;margin:0 auto}
+nav.tabs{position:fixed;left:0;right:0;bottom:0;z-index:10;display:grid;grid-template-columns:repeat(4,1fr);background:var(--card);border-top:1px solid var(--line);padding:6px 4px calc(6px + env(safe-area-inset-bottom))}
+nav.tabs button{border:0;background:none;display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 0;font-size:11.5px;color:var(--muted);font-weight:600;min-height:54px}
+nav.tabs button svg{width:26px;height:26px}
+nav.tabs button.on{color:var(--text)}
+.card{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:14px;margin:0 0 12px}
+.row{display:flex;align-items:center;gap:10px}
+.muted{color:var(--muted)}
+.small{font-size:13px}
+.btn{border:0;border-radius:14px;min-height:52px;padding:0 18px;font-weight:700;font-size:17px;background:var(--card2);display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.btn.primary{background:var(--accent);color:var(--accentText)}
+.btn.danger{background:transparent;color:var(--danger);border:1.5px solid var(--danger)}
+.btn.block{width:100%}
+.btn.p{background:var(--p);color:#fff}.btn.l{background:var(--l);color:#fff}.btn.d{background:var(--draw);color:#fff}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.stack>*+*{margin-top:10px}
+input[type=search],input[type=text],input[type=number],input[type=date],select,textarea{width:100%;min-height:48px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);padding:10px 12px;font-size:17px}
+textarea{min-height:90px;resize:vertical}
+label.f{display:block;font-size:13px;font-weight:700;color:var(--muted);margin:12px 0 6px;text-transform:uppercase;letter-spacing:.04em}
+.list{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;margin-bottom:12px}
+.item{display:flex;align-items:center;gap:12px;padding:12px 14px;border:0;background:none;width:100%;text-align:left;border-bottom:1px solid var(--line);min-height:68px}
+.item:last-child{border-bottom:0}
+.item .t{flex:1;min-width:0}
+.item .t b{display:block;font-size:17px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tile{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;color:#fff;font-weight:800;font-size:20px;flex:none}
+.tile.big{width:100%;height:auto;aspect-ratio:1.4;font-size:44px;border-radius:14px}
+.badge{min-width:46px;height:34px;padding:0 8px;border-radius:10px;display:grid;place-items:center;font-weight:800;background:var(--card2);font-variant-numeric:tabular-nums}
+.badge.hi{background:var(--yellow);color:#1B1F27}
+.chip{display:inline-flex;align-items:center;border-radius:999px;padding:3px 10px;font-size:13px;font-weight:700;background:var(--card2)}
+.chip.p{background:var(--pSoft);color:var(--p)}.chip.l{background:var(--lSoft);color:var(--l)}
+.seg{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;background:var(--card2);border-radius:12px;padding:4px;margin-bottom:12px}
+.seg button{border:0;background:none;border-radius:9px;min-height:40px;font-weight:700;color:var(--muted)}
+.seg button.on{background:var(--card);color:var(--text);box-shadow:var(--shadow)}
+.toolbar{display:flex;gap:8px;margin-bottom:12px}
+.toolbar select{width:auto;flex:none}
+.fab{position:fixed;right:16px;bottom:calc(92px + env(safe-area-inset-bottom));z-index:9;border:0;border-radius:999px;height:58px;padding:0 22px;background:var(--accent);color:var(--accentText);font-weight:800;font-size:17px;box-shadow:0 6px 18px rgba(0,0,0,.2)}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:15px}
+.kv dt{color:var(--muted)} .kv dd{margin:0;font-weight:600}
+.cv{position:relative;flex:none;width:46px;height:46px}
+.cv img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:12px;background:var(--card2)}
+.cv.big{width:100%;height:auto}
+.cv.big img{object-fit:contain;border-radius:14px}
+.chk{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.chk label{display:flex;align-items:center;gap:8px;min-height:46px;padding:0 10px;border:1.5px solid var(--line);border-radius:12px;background:var(--card);font-size:15px;font-weight:600}
+.chk input{width:20px;height:20px;accent-color:var(--accent);flex:none}
+.rl{text-align:center}
+.rl .cv.big{max-width:240px;margin:0 auto}
+.rl b{display:block;font-size:22px;margin:10px 0 2px}
+.rl.done b{color:var(--p)}
+.btn:disabled{opacity:.5}
+/* scoreboard */
+.score{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;text-align:center;gap:8px}
+.score .n{font-size:52px;font-weight:900;line-height:1;font-variant-numeric:tabular-nums}
+.score .who{font-weight:800}
+.vs{color:var(--muted);font-weight:800}
+.bar{height:10px;border-radius:6px;background:var(--card2);overflow:hidden;display:flex}
+.bar i{display:block;height:100%}
+/* counter */
+.players{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pl{border-radius:20px;padding:12px 10px 10px;text-align:center;display:flex;flex-direction:column;gap:8px}
+.pl.P{background:var(--pSoft)}.pl.L{background:var(--lSoft)}
+.pl .name{font-weight:800;font-size:18px}
+.pl.P .name{color:var(--p)}.pl.L .name{color:var(--l)}
+.pl .tot{font-size:60px;font-weight:900;line-height:1;font-variant-numeric:tabular-nums}
+.pl .rnd{font-size:14px;color:var(--muted);font-weight:700;min-height:20px}
+.pl .pm{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.pl .pm button{border:0;border-radius:16px;min-height:72px;font-size:28px;font-weight:900;background:var(--card);color:var(--text)}
+.pl .kb{border:0;border-radius:14px;min-height:56px;font-weight:800;font-size:17px;color:#fff}
+.pl.P .kb{background:var(--p)}.pl.L .kb{background:var(--l)}
+/* modal */
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:20;display:flex;align-items:flex-end;justify-content:center}
+.sheet{background:var(--bg);width:100%;max-width:640px;border-radius:22px 22px 0 0;padding:18px 16px calc(18px + env(safe-area-inset-bottom));max-height:92vh;overflow:auto}
+.sheet h2{margin:0 0 12px;font-size:22px}
+.keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.keypad button{border:0;border-radius:14px;min-height:62px;font-size:26px;font-weight:800;background:var(--card)}
+.display{font-size:48px;font-weight:900;text-align:center;padding:6px;font-variant-numeric:tabular-nums;min-height:66px}
+.winbtn{min-height:76px;font-size:22px;border-radius:18px}
+.toast{position:fixed;left:50%;transform:translateX(-50%);top:calc(env(safe-area-inset-top) + 12px);background:var(--accent);color:var(--accentText);padding:12px 18px;border-radius:12px;font-weight:700;z-index:30;max-width:90vw}
+/* wizard */
+.q{font-size:24px;font-weight:800;margin:6px 0 14px}
+.opts{display:grid;gap:10px}
+.opts button{min-height:60px;border-radius:16px;border:2px solid var(--line);background:var(--card);font-size:19px;font-weight:700}
+.opts.two{grid-template-columns:1fr 1fr}
+.dots{display:flex;gap:6px;margin-bottom:6px}.dots i{flex:1;height:5px;border-radius:3px;background:var(--card2)}.dots i.on{background:var(--accent)}
+.res{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.res button{border:0;background:var(--card);border-radius:16px;padding:8px;text-align:left;box-shadow:var(--shadow)}
+.res b{display:block;margin-top:6px;font-size:15px;line-height:1.25}
+h3{margin:18px 0 8px;font-size:15px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.empty{text-align:center;padding:30px 10px;color:var(--muted)}
+a{color:var(--p)}
+</style>
+</head>
+<body>
+<header class="top"><button class="back" id="backBtn" hidden aria-label="Atrás">‹</button><h1 id="title">Ludoteca</h1></header>
+<main id="view"></main>
+<nav class="tabs" id="tabs">
+  <button data-tab="biblioteca"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="5" height="16" rx="1"/><rect x="10" y="4" width="5" height="16" rx="1"/><path d="M17.5 5.5l3 .8-3.6 13.5-3-.8"/></svg>Juegos</button>
+  <button data-tab="jugar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8.5" cy="8.5" r="1.3" fill="currentColor"/><circle cx="15.5" cy="15.5" r="1.3" fill="currentColor"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/></svg>Jugar</button>
+  <button data-tab="elige"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .8-1 1.5V14"/><circle cx="12" cy="17.3" r=".6" fill="currentColor"/></svg>Elige</button>
+  <button data-tab="stats"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg>Marcador</button>
+</nav>
+<input type="file" id="fileIn" accept="application/json,.json" hidden>
+<input type="file" id="camIn" accept="image/*" hidden>
+<script>
+"use strict";
+const KEY='ludoteca.v1', LIVE='ludoteca.live';
+const PL=[{id:'P',nombre:'Pablo'},{id:'L',nombre:'Leticia'}];
+const MESES=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,7);
+function today(){const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+function fmtDate(s){if(!s)return '';const [y,m,d]=s.split('-').map(Number);return d+' '+MESES[m-1]+' '+y}
+function num(v){return (v===''||v==null||isNaN(+v))?null:+v}
+function fmtNota(n){return n==null?'—':(Math.round(n*10)/10).toLocaleString('es-ES',{maximumFractionDigits:1})}
+
+let DB=null, LIVEST=null;
+function blank(){return {app:'ludoteca',version:1,jugadores:PL,juegos:[],saldo:{},partidas:[],ideal:{}}}
+function migrate(){if(!DB)return;for(const g of DB.juegos){if(!Array.isArray(g.tipos)){g.tipos=g.tipo?[g.tipo]:[];if(g.tipo)g.tiposLegacy=true}delete g.tipo;if(g.imagen===undefined)g.imagen=null}DB.version=2}
+function load(){
+  try{const r=localStorage.getItem(KEY);DB=r?JSON.parse(r):null}catch(e){DB=null}
+  try{const r=localStorage.getItem(LIVE);LIVEST=r?JSON.parse(r):null}catch(e){LIVEST=null}
+  migrate();
+}
+/* fotos de carátulas en IndexedDB */
+let FOTOS={},CAMFOR=null;
+function idb(){return new Promise((res,rej)=>{if(!window.indexedDB)return rej('sin idb');const r=indexedDB.open('ludoteca-fotos',1);r.onupgradeneeded=()=>r.result.createObjectStore('fotos');r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)})}
+async function fotosLoad(){try{const db=await idb();await new Promise(res=>{const rq=db.transaction('fotos','readonly').objectStore('fotos').openCursor();rq.onsuccess=()=>{const c=rq.result;if(c){FOTOS[c.key]=c.value;c.continue()}else res()};rq.onerror=()=>res()})}catch(e){}}
+async function fotoSet(id,val){if(val)FOTOS[id]=val;else delete FOTOS[id];try{const db=await idb();await new Promise((res,rej)=>{const tx=db.transaction('fotos','readwrite');const st=tx.objectStore('fotos');val?st.put(val,id):st.delete(id);tx.oncomplete=res;tx.onerror=()=>rej(tx.error)})}catch(e){toast('No se ha podido guardar la foto')}}
+async function fotosClear(){FOTOS={};try{const db=await idb();await new Promise(res=>{const tx=db.transaction('fotos','readwrite');tx.objectStore('fotos').clear();tx.oncomplete=res;tx.onerror=res})}catch(e){}}
+function resizePhoto(file){return new Promise((res,rej)=>{const img=new Image();const u=URL.createObjectURL(file);img.onload=()=>{const m=640,s=Math.min(1,m/Math.max(img.width,img.height));const c=document.createElement('canvas');c.width=Math.round(img.width*s);c.height=Math.round(img.height*s);c.getContext('2d').drawImage(img,0,0,c.width,c.height);URL.revokeObjectURL(u);res(c.toDataURL('image/jpeg',0.8))};img.onerror=()=>{URL.revokeObjectURL(u);rej()};img.src=u})}
+function takePhoto(id){CAMFOR=id;const i=$('#camIn');i.value='';i.click()}
+function setLink(id){const g=game(id);modal(`<h2>Enlace de la carátula</h2><input type="text" id="lk" inputmode="url" autocapitalize="off" autocorrect="off" placeholder="https://…" value="${esc(g.imagen||'')}">
+  <p class="small muted">Pega el enlace directo a una imagen (mantén pulsada la imagen en Safari → Copiar enlace de la imagen).</p><div class="grid2"><button class="btn" onclick="closeModal()">Cancelar</button><button class="btn primary" id="lkOk">Guardar</button></div>`,
+  s=>s.querySelector('#lkOk').onclick=()=>{const u=s.querySelector('#lk').value.trim();if(u&&!/^https?:\/\//i.test(u)){toast('Tiene que empezar por https://');return}g.imagen=u||null;save();closeModal();render()})}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(DB))}catch(e){toast('No se ha podido guardar: '+e.message)}}
+function saveLive(){try{LIVEST?localStorage.setItem(LIVE,JSON.stringify(LIVEST)):localStorage.removeItem(LIVE)}catch(e){}}
+const game=id=>DB.juegos.find(g=>g.id===id);
+function pname(id){return id==='P'?'Pablo':id==='L'?'Leticia':'Empate'}
+
+const sk=n=>n.replace(/^[¡¿"'\s]+/,'');
+function cmpN(a,b){return sk(a.nombre).localeCompare(sk(b.nombre),'es',{sensitivity:'base'})}
+function hue(s){let h=0;for(const c of s)h=(h*31+c.charCodeAt(0))%360;return h}
+function tile(g,big){const h=hue(g.nombre);const ch=(g.nombre.replace(/^[^A-Za-zÀ-ÿ0-9]+/,'')[0]||'?').toUpperCase();
+  return `<div class="tile${big?' big':''}" style="background:linear-gradient(135deg,hsl(${h} 55% 45%),hsl(${(h+40)%360} 60% 35%))">${esc(ch)}</div>`}
+function coverSrc(g){return FOTOS[g.id]||g.imagen||null}
+function cover(g,big){const src=coverSrc(g);return `<div class="cv${big?' big':''}">${tile(g,big)}${src?`<img src="${esc(src)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">`:''}</div>`}
+function fuentesHtml(g){const f=g.fuentes;if(!f)return '';const lab={modo:'modo',dificultad:'dificultad',tipos:'tipo',imagen:'carátula',jugadores:'jugadores'};const it=Object.entries(f).filter(([k,u])=>u&&/^https?:/.test(u)).map(([k,u])=>{let h='';try{h=new URL(u).hostname.replace(/^www\./,'')}catch(e){}return `${lab[k]||k}: <a href="${esc(u)}" target="_blank" rel="noopener">${esc(h)}</a>`});return it.length?`<p class="small muted" style="margin:6px 0 0">${it.join(' · ')}</p>`:''}
+function rangeTxt(a,b,u){if(a==null&&b==null)return '';if(b==null||a===b)return a+(b==null&&u==='jug'?'+':'')+' '+u;return a+'–'+b+' '+u}
+function metaTxt(g){return [rangeTxt(g.jmin,g.jmax,'jug'),rangeTxt(g.tmin,g.tmax,'min')].filter(Boolean).join(' · ')}
+
+/* ---------- stats ---------- */
+function gameStats(id){
+  const s={P:0,L:0,E:0,partidas:0,saldoP:0,saldoL:0,fechas:[],record:null,ultima:null};
+  const sd=DB.saldo[id]; if(sd){s.P+=sd.P||0;s.L+=sd.L||0;s.saldoP=sd.P||0;s.saldoL=sd.L||0;s.partidas+=(sd.P||0)+(sd.L||0)}
+  for(const p of DB.partidas){ if(p.juego!==id)continue; s.partidas++; s[p.ganador]++; s.fechas.push(p.fecha);
+    if(!s.ultima||p.fecha>s.ultima)s.ultima=p.fecha;
+    if(p.puntos)for(const k of ['P','L']){const v=p.puntos[k];if(v!=null&&(!s.record||v>s.record.v))s.record={v,who:k,fecha:p.fecha}}}
+  s.fechas.sort().reverse(); return s;
+}
+function lastPlayed(id){let u=null;for(const p of DB.partidas)if(p.juego===id&&(!u||p.fecha>u))u=p.fecha;return u}
+function globalStats(){
+  const s={P:0,L:0,E:0,partidas:0,puntosP:0,puntosL:0,conPuntos:0};
+  for(const id in DB.saldo){s.P+=DB.saldo[id].P||0;s.L+=DB.saldo[id].L||0;s.partidas+=(DB.saldo[id].P||0)+(DB.saldo[id].L||0)}
+  for(const p of DB.partidas){s.partidas++;s[p.ganador]++;if(p.puntos&&p.puntos.P!=null&&p.puntos.L!=null){s.puntosP+=p.puntos.P;s.puntosL+=p.puntos.L;s.conPuntos++}}
+  return s;
+}
+
+/* ---------- navigation ---------- */
+let TAB='biblioteca', STACK=[];
+function go(tab){TAB=tab;STACK=[];render()}
+function push(fn){STACK.push(fn);render()}
+function pop(){STACK.pop();render()}
+$('#backBtn').onclick=pop;
+$('#tabs').onclick=e=>{const b=e.target.closest('button');if(b)go(b.dataset.tab)};
+function setTitle(t){$('#title').textContent=t;$('#backBtn').hidden=!STACK.length}
+function render(){
+  document.querySelectorAll('#tabs button').forEach(b=>b.classList.toggle('on',b.dataset.tab===TAB));
+  const v=$('#view'); window.scrollTo(0,0);
+  if(!DB){setTitle('Ludoteca');v.innerHTML=welcome();return}
+  if(STACK.length){STACK[STACK.length-1](v);return}
+  ({biblioteca:vBiblioteca,jugar:vJugar,elige:vElige,stats:vStats})[TAB](v);
+}
+function welcome(){return `<div class="card stack"><p style="font-size:18px;margin:0"><b>Bienvenido.</b> Aún no hay datos en este iPhone.</p>
+<p class="muted" style="margin:0">Si tienes el archivo de datos iniciales o una copia de seguridad, impórtalo ahora.</p>
+<button class="btn primary block" onclick="pickImport()">Importar archivo JSON</button>
+<button class="btn block" onclick="DB=blank();save();render()">Empezar sin datos</button></div>`}
+
+/* ---------- modal & toast ---------- */
+function modal(html,onMount){closeModal();const s=document.createElement('div');s.className='scrim';s.id='scrim';
+  s.innerHTML=`<div class="sheet">${html}</div>`;s.addEventListener('click',e=>{if(e.target===s)closeModal()});document.body.appendChild(s);if(onMount)onMount(s);return s}
+function closeModal(){const s=$('#scrim');if(s)s.remove()}
+let tt;function toast(m){let t=$('.toast');if(!t){t=document.createElement('div');t.className='toast';document.body.appendChild(t)}t.textContent=m;clearTimeout(tt);tt=setTimeout(()=>t.remove(),2200)}
+function confirmBox(msg,okTxt,fn,danger){modal(`<h2>${esc(msg)}</h2><div class="grid2"><button class="btn" onclick="closeModal()">Cancelar</button><button class="btn ${danger?'danger':'primary'}" id="okB">${esc(okTxt)}</button></div>`,s=>s.querySelector('#okB').onclick=()=>{closeModal();fn()})}
+
+/* ---------- Biblioteca ---------- */
+let LQ='',LSORT='nombre';
+function vBiblioteca(v){
+  setTitle('Mis juegos');
+  v.innerHTML=`<div class="toolbar"><input type="search" id="q" placeholder="Buscar juego" value="${esc(LQ)}" autocomplete="off">
+  <select id="sort"><option value="nombre">A–Z</option><option value="nota">Mi nota</option><option value="ultima">Última partida</option></select></div>
+  <div id="lst" style="padding-bottom:70px"></div><button class="fab" onclick="push(v=>vEdit(v,null))">+ Añadir</button>`;
+  $('#sort').value=LSORT;
+  const draw=()=>{const q=LQ.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
+    let a=DB.juegos.filter(g=>g.nombre.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').includes(q));
+    const lp={};a.forEach(g=>lp[g.id]=lastPlayed(g.id));
+    a.sort((x,y)=>LSORT==='nota'?((y.nota??-1)-(x.nota??-1))||cmpN(x,y):LSORT==='ultima'?((lp[y.id]||'').localeCompare(lp[x.id]||''))||cmpN(x,y):cmpN(x,y));
+    $('#lst').innerHTML=a.length?`<p class="muted small" style="margin:0 0 8px">${a.length} juegos</p><div class="list">${a.map(g=>`<button class="item" data-id="${g.id}">${cover(g)}<div class="t"><b>${esc(g.nombre)}</b><span class="muted small">${esc(metaTxt(g))}${metaTxt(g)?' · ':''}${lp[g.id]?'Última: '+fmtDate(lp[g.id]):'Sin partidas'}</span></div><div class="badge${g.nota!=null&&g.nota>=8?' hi':''}">${fmtNota(g.nota)}</div></button>`).join('')}</div>`:'<div class="empty">No hay juegos que coincidan.</div>';
+  };
+  draw();
+  $('#q').oninput=e=>{LQ=e.target.value;draw()};
+  $('#sort').onchange=e=>{LSORT=e.target.value;draw()};
+  $('#lst').onclick=e=>{const b=e.target.closest('.item');if(b)push(v=>vFicha(v,b.dataset.id))};
+}
+function vFicha(v,id){
+  const g=game(id); if(!g){pop();return}
+  setTitle(g.nombre); const s=gameStats(id); const tot=s.P+s.L+s.E;
+  const coop=g.modo==='Cooperativo';
+  v.innerHTML=`<div class="card">${cover(g,true)}<div class="grid2" style="margin-top:10px"><button class="btn" onclick="takePhoto('${id}')">📷 Foto</button>${FOTOS[id]?`<button class="btn" onclick="fotoSet('${id}',null).then(render)">Quitar foto</button>`:`<button class="btn" onclick="setLink('${id}')">Enlace</button>`}</div></div>
+  <div class="card stack">
+    <div class="row"><div class="badge${g.nota!=null&&g.nota>=8?' hi':''}" style="height:44px;min-width:60px;font-size:20px">${fmtNota(g.nota)}</div><div class="muted">Mi nota</div></div>
+    ${coop?'<p class="muted small" style="margin:0">Juego cooperativo: no se registran partidas.</p>':`<div class="grid2"><button class="btn primary" onclick="startLive('${id}')">Contador</button><button class="btn" onclick="quickWin('${id}')">Apuntar ganador</button></div>`}
+  </div>
+  ${coop?'':`<div class="card"><div class="score"><div><div class="who" style="color:var(--p)">Pablo</div><div class="n">${s.P}</div></div><div class="vs">${s.E?s.E+' emp.':'vs'}</div><div><div class="who" style="color:var(--l)">Leticia</div><div class="n">${s.L}</div></div></div>
+    ${tot?`<div class="bar" style="margin-top:12px"><i style="width:${s.P/tot*100}%;background:var(--p)"></i><i style="width:${s.E/tot*100}%;background:var(--draw)"></i><i style="width:${s.L/tot*100}%;background:var(--l)"></i></div>`:''}
+    <p class="muted small" style="margin:10px 0 0">${s.partidas} partidas${s.saldoP+s.saldoL?` (incluye ${s.saldoP+s.saldoL} del saldo inicial, sin fecha)`:''}${s.record?` · Récord: ${s.record.v} pts, ${pname(s.record.who)} (${fmtDate(s.record.fecha)})`:''}</p></div>`}
+  <div class="card"><dl class="kv">
+    <dt>Jugadores</dt><dd>${esc(rangeTxt(g.jmin,g.jmax,'')||'—')}</dd>
+    <dt>Duración</dt><dd>${esc(rangeTxt(g.tmin,g.tmax,'min')||'—')}</dd>
+    <dt>Dificultad</dt><dd>${esc(g.dificultad||'—')}</dd>
+    <dt>Modo</dt><dd>${esc(g.modo||'—')}</dd>
+    <dt>Tipo</dt><dd>${esc((g.tipos||[]).join(', ')||'—')}</dd>
+    <dt>Contador</dt><dd>${g.rondas?'Por rondas':'Solo total'}</dd>
+    ${g.edad?`<dt>Edad</dt><dd>${g.edad}+</dd>`:''}
+  </dl>${fuentesHtml(g)}${g.notas?`<p style="margin:12px 0 0">${esc(g.notas)}</p>`:''}
+  ${g.fuente?`<p class="small muted" style="margin:10px 0 0">Fuente: ${/^https?:/.test(g.fuente)?`<a href="${esc(g.fuente)}" target="_blank" rel="noopener">${esc(new URL(g.fuente).hostname)}</a>`:esc(g.fuente)}</p>`:''}</div>
+  ${s.fechas.length?`<h3>Cuándo se ha jugado</h3><div class="list">${DB.partidas.filter(p=>p.juego===id).sort((a,b)=>b.fecha.localeCompare(a.fecha)||b.ts-a.ts).map(rowPartida).join('')}</div>`:''}
+  <div class="grid2" style="margin-top:12px"><button class="btn" onclick="push(v=>vEdit(v,'${id}'))">Editar</button><button class="btn danger" onclick="delGame('${id}')">Borrar</button></div>`;
+  v.querySelectorAll('[data-pid]').forEach(b=>b.onclick=()=>editPartida(b.dataset.pid));
+}
+function delGame(id){const g=game(id);const n=DB.partidas.filter(p=>p.juego===id).length;
+  confirmBox(`¿Borrar ${g.nombre}?${n?` También se borrarán sus ${n} partidas.`:''}`,'Borrar',()=>{DB.juegos=DB.juegos.filter(x=>x.id!==id);DB.partidas=DB.partidas.filter(p=>p.juego!==id);delete DB.saldo[id];save();STACK=[];render();toast('Juego borrado')},true)}
+function vEdit(v,id){
+  const g=id?game(id):{nombre:'',jmin:null,jmax:null,tmin:null,tmax:null,dificultad:null,modo:null,tipos:[],imagen:null,rondas:false,nota:null,notas:''};
+  setTitle(id?'Editar':'Nuevo juego');
+  const sel=(n,opts,val)=>`<select id="${n}"><option value="">—</option>${opts.map(o=>`<option${o===val?' selected':''}>${o}</option>`).join('')}</select>`;
+  v.innerHTML=`<div class="card">
+  <label class="f">Nombre</label><input type="text" id="nombre" value="${esc(g.nombre)}">
+  <label class="f">Mi nota (1 a 10, admite decimales)</label><input type="number" id="nota" inputmode="decimal" min="1" max="10" step="0.1" value="${g.nota??''}">
+  <div class="grid2"><div><label class="f">Jug. mín</label><input type="number" id="jmin" inputmode="numeric" value="${g.jmin??''}"></div><div><label class="f">Jug. máx</label><input type="number" id="jmax" inputmode="numeric" value="${g.jmax??''}"></div>
+  <div><label class="f">Min. mín</label><input type="number" id="tmin" inputmode="numeric" value="${g.tmin??''}"></div><div><label class="f">Min. máx</label><input type="number" id="tmax" inputmode="numeric" value="${g.tmax??''}"></div></div>
+  <label class="f">Dificultad</label>${sel('dificultad',['Fácil','Media','Difícil'],g.dificultad)}
+  <label class="f">Modo</label>${sel('modo',['Competitivo','Cooperativo'],g.modo)}
+  <label class="f">Tipo (puedes marcar varios)</label><div class="chk">${TIPOS.map(t=>`<label><input type="checkbox" value="${t}"${(g.tipos||[]).includes(t)?' checked':''}><span>${t}</span></label>`).join('')}</div>
+  <label class="f">Contador</label><select id="rondas"><option value="0">Solo total</option><option value="1"${g.rondas?' selected':''}>Por rondas</option></select>
+  <label class="f">Enlace de la carátula (opcional)</label><input type="text" id="imagen" inputmode="url" autocapitalize="off" autocorrect="off" placeholder="https://…" value="${esc(g.imagen||'')}">
+  <label class="f">Notas</label><textarea id="notas">${esc(g.notas||'')}</textarea>
+  </div><button class="btn primary block" id="sv">Guardar</button>`;
+  $('#sv').onclick=()=>{
+    const nombre=$('#nombre').value.trim(); if(!nombre){toast('Pon un nombre');return}
+    let nota=num($('#nota').value); if(nota!=null){if(nota<1||nota>10){toast('La nota va de 1 a 10');return} nota=Math.round(nota*10)/10}
+    const img=$('#imagen').value.trim(); if(img&&!/^https?:\/\//i.test(img)){toast('El enlace tiene que empezar por https://');return}
+    const o={nombre,nota,jmin:num($('#jmin').value),jmax:num($('#jmax').value),tmin:num($('#tmin').value),tmax:num($('#tmax').value),
+      dificultad:$('#dificultad').value||null,modo:$('#modo').value||null,tipos:[...v.querySelectorAll('.chk input:checked')].map(i=>i.value),
+      rondas:$('#rondas').value==='1',imagen:img||null,notas:$('#notas').value.trim()||null};
+    if(id){const gg=game(id);Object.assign(gg,o);delete gg.tiposLegacy;save();pop();toast('Guardado')}
+    else{const nid=nombre.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')+'-'+uid().slice(-4);
+      DB.juegos.push(Object.assign({id:nid,fuente:null},o));save();STACK=[];push(v=>vFicha(v,nid));toast('Juego añadido')}
+  };
+}
+
+/* ---------- Partidas ---------- */
+function rowPartida(p){const g=game(p.juego);const w=p.ganador;
+  return `<button class="item" data-pid="${p.id}"><div class="t"><b>${esc(g?g.nombre:'(juego borrado)')}</b><span class="muted small">${fmtDate(p.fecha)}${p.puntos?` · ${p.puntos.P??'–'} a ${p.puntos.L??'–'}`:''}${p.rondas?` · ${p.rondas.length} rondas`:''}</span></div><span class="chip ${w==='E'?'':w.toLowerCase()}">${w==='E'?'Empate':pname(w)}</span></button>`}
+function winnerButtons(){return `<div class="stack"><button class="btn p block winbtn" data-w="P">Pablo</button><button class="btn l block winbtn" data-w="L">Leticia</button><button class="btn d block" data-w="E">Empate</button></div>`}
+function quickWin(id){
+  const g=game(id);
+  modal(`<h2>¿Quién ha ganado?</h2><p class="muted" style="margin:-6px 0 12px">${esc(g.nombre)} · ${fmtDate(today())}</p>${winnerButtons()}
+  <label class="f">Puntos (opcional)</label><div class="grid2"><input type="number" id="qp" inputmode="numeric" placeholder="Pablo"><input type="number" id="ql" inputmode="numeric" placeholder="Leticia"></div>`,
+  s=>s.querySelectorAll('[data-w]').forEach(b=>b.onclick=()=>{const P=num(s.querySelector('#qp').value),L=num(s.querySelector('#ql').value);
+    addPartida({juego:id,ganador:b.dataset.w,puntos:(P!=null||L!=null)?{P,L}:null,rondas:null});closeModal();render()}));
+}
+function addPartida(o){DB.partidas.push(Object.assign({id:uid(),fecha:today(),ts:Date.now()},o));save();toast(o.ganador==='E'?'Empate guardado':'Victoria de '+pname(o.ganador)+' guardada')}
+function editPartida(pid){
+  const p=DB.partidas.find(x=>x.id===pid); if(!p)return; const g=game(p.juego);
+  modal(`<h2>${esc(g?g.nombre:'Partida')}</h2>
+  <label class="f">Fecha</label><input type="date" id="ef" value="${p.fecha}">
+  <label class="f">Puntos</label><div class="grid2"><input type="number" id="ep" inputmode="numeric" placeholder="Pablo" value="${p.puntos?.P??''}"><input type="number" id="el" inputmode="numeric" placeholder="Leticia" value="${p.puntos?.L??''}"></div>
+  <label class="f">Ganador</label><select id="ew"><option value="P">Pablo</option><option value="L">Leticia</option><option value="E">Empate</option></select>
+  ${p.rondas?`<p class="small muted">Rondas: ${p.rondas.map((r,i)=>`R${i+1} ${r.P}–${r.L}`).join(' · ')}</p>`:''}
+  <div class="grid2" style="margin-top:14px"><button class="btn danger" id="ed">Borrar</button><button class="btn primary" id="es">Guardar</button></div>`,
+  s=>{s.querySelector('#ew').value=p.ganador;
+    s.querySelector('#es').onclick=()=>{const f=s.querySelector('#ef').value;if(f)p.fecha=f;const P=num(s.querySelector('#ep').value),L=num(s.querySelector('#el').value);
+      p.puntos=(P!=null||L!=null)?{P,L}:null;p.ganador=s.querySelector('#ew').value;save();closeModal();render();toast('Partida actualizada')};
+    s.querySelector('#ed').onclick=()=>{closeModal();confirmBox('¿Borrar esta partida?','Borrar',()=>{DB.partidas=DB.partidas.filter(x=>x.id!==pid);save();render();toast('Partida borrada')},true)}});
+}
+
+/* ---------- Contador ---------- */
+function startLive(id){
+  if(LIVEST&&LIVEST.juego!==id&&game(LIVEST.juego)){confirmBox(`Hay un contador abierto de ${game(LIVEST.juego).nombre}. ¿Descartarlo?`,'Descartar',()=>{LIVEST=null;startLive(id)},true);return}
+  if(!LIVEST)LIVEST={juego:id,rondasOn:!!game(id).rondas,rondas:[{P:0,L:0}],inicio:Date.now()};
+  saveLive();TAB='jugar';STACK=[vLive];render();
+}
+function liveTotals(){const t={P:0,L:0};for(const r of LIVEST.rondas){t.P+=r.P;t.L+=r.L}return t}
+function vLive(v){
+  if(!LIVEST||!game(LIVEST.juego)){LIVEST=null;saveLive();STACK=[];render();return}
+  const g=game(LIVEST.juego); setTitle(g.nombre);
+  const t=liveTotals(), on=LIVEST.rondasOn, cur=LIVEST.rondas[LIVEST.rondas.length-1], n=LIVEST.rondas.length;
+  const panel=id=>`<div class="pl ${id}"><div class="name">${pname(id)}</div><div class="tot">${t[id]}</div><div class="rnd">${on?`Ronda ${n}: ${cur[id]>0?'+':''}${cur[id]}`:''}</div>
+    <div class="pm"><button data-a="-1" data-p="${id}" aria-label="Restar 1">−1</button><button data-a="1" data-p="${id}" aria-label="Sumar 1">+1</button></div>
+    <button class="kb" data-k="${id}">Teclado</button></div>`;
+  v.innerHTML=`<div class="seg"><button class="${on?'':'on'}" data-m="0">Solo total</button><button class="${on?'on':''}" data-m="1">Por rondas</button></div>
+  <div class="players">${panel('P')}${panel('L')}</div>
+  ${on?`<div class="grid2" style="margin-top:10px"><button class="btn" id="rv">Ver rondas (${n})</button><button class="btn primary" id="rn">Siguiente ronda</button></div>`:''}
+  <button class="btn primary block" style="margin-top:14px;min-height:60px" id="fin">Terminar y guardar</button>
+  <button class="btn block" style="margin-top:10px" id="dis">Descartar partida</button>`;
+  v.querySelectorAll('[data-a]').forEach(b=>b.onclick=()=>addPts(b.dataset.p,+b.dataset.a));
+  v.querySelectorAll('[data-k]').forEach(b=>b.onclick=()=>keypad(b.dataset.k));
+  v.querySelectorAll('[data-m]').forEach(b=>b.onclick=()=>{const want=b.dataset.m==='1';if(want===on)return;
+    if(!want&&n>1){LIVEST.rondas=[liveTotals()]}LIVEST.rondasOn=want;saveLive();render()});
+  if(on){$('#rn').onclick=()=>{LIVEST.rondas.push({P:0,L:0});saveLive();render();toast('Ronda '+LIVEST.rondas.length)};$('#rv').onclick=showRounds}
+  $('#fin').onclick=finishLive;
+  $('#dis').onclick=()=>confirmBox('¿Descartar la partida sin guardarla?','Descartar',()=>{LIVEST=null;saveLive();STACK=[];render()},true);
+}
+function addPts(id,d){const r=LIVEST.rondas[LIVEST.rondas.length-1];r[id]+=d;saveLive();
+  const v=$('#view');const t=liveTotals();const pl=v.querySelector('.pl.'+id);pl.querySelector('.tot').textContent=t[id];
+  if(LIVEST.rondasOn)pl.querySelector('.rnd').textContent=`Ronda ${LIVEST.rondas.length}: ${r[id]>0?'+':''}${r[id]}`;
+  if(navigator.vibrate)navigator.vibrate(8)}
+function keypad(id){
+  let val='';
+  modal(`<h2 style="color:var(--${id.toLowerCase()})">${pname(id)}</h2><div class="display" id="kd">0</div>
+  <div class="keypad">${[1,2,3,4,5,6,7,8,9].map(n=>`<button data-n="${n}">${n}</button>`).join('')}<button data-n="C" aria-label="Borrar">⌫</button><button data-n="0">0</button><button data-n="X" class="muted" aria-label="Cancelar">✕</button></div>
+  <div class="grid2" style="margin-top:12px"><button class="btn danger" id="kmin" style="min-height:62px;font-size:20px">− Restar</button><button class="btn ${id.toLowerCase()}" id="kplus" style="min-height:62px;font-size:20px">+ Sumar</button></div>`,
+  s=>{const d=s.querySelector('#kd');
+    s.querySelectorAll('[data-n]').forEach(b=>b.onclick=()=>{const n=b.dataset.n;if(n==='X'){closeModal();return}if(n==='C')val=val.slice(0,-1);else if(val.length<5)val=(val+n).replace(/^0+(?=\d)/,'');d.textContent=val||'0'});
+    const apply=sg=>{const x=parseInt(val||'0',10);if(!x){closeModal();return}closeModal();addPts(id,sg*x);toast(`${sg>0?'+':'−'}${x} para ${pname(id)}`)};
+    s.querySelector('#kplus').onclick=()=>apply(1);s.querySelector('#kmin').onclick=()=>apply(-1)});
+}
+function showRounds(){
+  const rs=LIVEST.rondas;
+  modal(`<h2>Rondas</h2><div class="list">${rs.map((r,i)=>`<div class="item"><div class="t"><b>Ronda ${i+1}</b></div><span class="chip p">${r.P}</span><span class="chip l">${r.L}</span>${rs.length>1?`<button class="btn" style="min-height:40px;padding:0 10px;font-size:14px" data-del="${i}">Quitar</button>`:''}</div>`).join('')}</div>
+  <p class="muted small">Total: Pablo ${liveTotals().P} · Leticia ${liveTotals().L}</p><button class="btn block" onclick="closeModal()">Cerrar</button>`,
+  s=>s.querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>{LIVEST.rondas.splice(+b.dataset.del,1);saveLive();closeModal();render();showRounds()}));
+}
+function finishLive(){
+  const t=liveTotals();
+  modal(`<h2>¿Quién ha ganado?</h2><p class="muted" style="margin:-6px 0 12px">Pablo ${t.P} · Leticia ${t.L}</p>${winnerButtons()}`,
+  s=>s.querySelectorAll('[data-w]').forEach(b=>b.onclick=()=>{
+    addPartida({juego:LIVEST.juego,ganador:b.dataset.w,puntos:{P:t.P,L:t.L},rondas:LIVEST.rondasOn&&LIVEST.rondas.length>1?LIVEST.rondas.map(r=>({P:r.P,L:r.L})):null});
+    LIVEST=null;saveLive();closeModal();STACK=[];render()}));
+}
+
+/* ---------- Elige el juego ---------- */
+const TIPOS=['Fiesta','Familiar','Estrategia','Cartas','Preguntas y palabras','Misterio y deducción','Aventura y campaña','Escape room'];
+const QS=[
+ {k:'n',q:'¿Cuántos sois?',o:[['1','1'],['2','2'],['3','3'],['4','4'],['5','5'],['6','6'],['7','7'],['8','8 o más']],two:true},
+ {k:'t',q:'¿Cuánto tiempo tenéis?',o:[['30','Menos de 30 min'],['60','De 30 min a 1 hora'],['120','De 1 a 2 horas'],['999','Más de 2 horas'],['*','Nos da igual']]},
+ {k:'m',q:'¿Qué os apetece?',o:[['Competitivo','Competir entre nosotros'],['Cooperativo','Cooperar contra el juego'],['*','Nos da igual']]},
+ {k:'d',q:'¿Qué dificultad?',o:[['Fácil','Fácil'],['Media','Media'],['Difícil','Difícil'],['*','Nos da igual']]},
+ {k:'y',q:'¿Qué tipo de juego?',o:[...TIPOS.map(t=>[t,t]),['*','Nos da igual']],two:true},
+];
+let ANS={},STEP=0;
+function vElige(v){
+  setTitle('Elige el juego');
+  if(STEP<QS.length){const q=QS[STEP];
+    v.innerHTML=`<div class="dots">${QS.map((_,i)=>`<i class="${i<=STEP?'on':''}"></i>`).join('')}</div><div class="q">${q.q}</div>
+    <div class="opts${q.two?' two':''}">${q.o.map(([val,t])=>`<button data-v="${val}"${val==='*'&&q.two?' style="grid-column:1/-1"':''}>${t}</button>`).join('')}</div>
+    ${STEP?'<button class="btn block" style="margin-top:14px" id="prev">Pregunta anterior</button>':''}`;
+    v.querySelectorAll('[data-v]').forEach(b=>b.onclick=()=>{ANS[q.k]=b.dataset.v;STEP++;render()});
+    if(STEP)$('#prev').onclick=()=>{STEP--;render()};return}
+  const yes=[],maybe=[];
+  for(const g of DB.juegos){const r=match(g);if(r===1)yes.push(g);else if(r===0)maybe.push(g)}
+  const ord=(a,b)=>((b.nota??-1)-(a.nota??-1))||cmpN(a,b);yes.sort(ord);maybe.sort(ord);
+  const sum=QS.map(q=>q.o.find(o=>o[0]===ANS[q.k])[1]).join(' · ');
+  const grid=a=>`<div class="res">${a.map(g=>`<button data-id="${g.id}">${cover(g,true)}<b>${esc(g.nombre)}</b><span class="muted small">${fmtNota(g.nota)!=='—'?'Nota '+fmtNota(g.nota)+' · ':''}${esc(metaTxt(g))}</span></button>`).join('')}</div>`;
+  const pool=yes.length?yes:maybe;
+  v.innerHTML=`<p class="muted" style="margin:0 0 10px">${esc(sum)}</p>
+  ${pool.length?`<button class="btn primary block" style="min-height:62px;font-size:19px" id="pick">🎲 Elige tú por nosotros</button>`:''}
+  <h3>Encajan (${yes.length})</h3>${yes.length?grid(yes):'<div class="empty">Ningún juego cumple todo con los datos que hay.</div>'}
+  ${maybe.length?`<h3>Pueden encajar, faltan datos (${maybe.length})</h3><p class="muted small" style="margin:-4px 0 10px">Cumplen lo que se sabe, pero en su ficha falta algún dato de los que habéis elegido. Complétalo en Editar.</p>${grid(maybe)}`:''}
+  <button class="btn block" style="margin-top:16px" id="again">Volver a empezar</button>`;
+  $('#again').onclick=()=>{ANS={};STEP=0;render()};
+  if(pool.length)$('#pick').onclick=()=>roulette(pool);
+  v.querySelectorAll('.res [data-id]').forEach(b=>b.onclick=()=>push(x=>vFicha(x,b.dataset.id)));
+}
+function roulette(pool){
+  modal(`<h2 style="text-align:center">La app elige…</h2><div id="rl" class="rl"></div>
+  <div class="grid2" style="margin-top:14px"><button class="btn" id="rAgain">Otra vez</button><button class="btn primary" id="rGo">Ver ficha</button></div>`,
+  s=>{let chosen=null;const box=s.querySelector('#rl'),go=s.querySelector('#rGo'),ag=s.querySelector('#rAgain');
+    const spin=()=>{go.disabled=ag.disabled=true;box.classList.remove('done');let i=0,n=pool.length>1?14+Math.floor(Math.random()*7):1,delay=45,prev=null;
+      const step=()=>{let g;do{g=pool[Math.floor(Math.random()*pool.length)]}while(pool.length>1&&g===prev);prev=g;chosen=g;
+        box.innerHTML=cover(g,true)+`<b>${esc(g.nombre)}</b><span class="muted small">${esc(metaTxt(g))}</span>`;
+        if(++i<n){delay*=1.12;setTimeout(step,delay)}else{go.disabled=ag.disabled=false;box.classList.add('done');if(navigator.vibrate)navigator.vibrate(30)}};
+      step()};
+    spin();ag.onclick=spin;go.onclick=()=>{if(!chosen)return;closeModal();push(x=>vFicha(x,chosen.id))}});
+}
+// 1 = cumple, 0 = desconocido en algún criterio, -1 = no cumple
+function match(g){let unk=false;
+  const n=+ANS.n;
+  if(g.jmin==null&&g.jmax==null)unk=true;else{const lo=g.jmin??1,hi=g.jmax??99;if(n===8?hi<8:(n<lo||n>hi))return -1}
+  if(ANS.t!=='*'){if(g.tmin==null&&g.tmax==null)unk=true;else{const lo=g.tmin??g.tmax,hi=g.tmax??g.tmin;const lim=+ANS.t;
+    if(lim===30&&lo>30)return -1;if(lim===60&&(lo>60||hi<30))return -1;if(lim===120&&(lo>120||hi<60))return -1;if(lim===999&&hi<120)return -1}}
+  for(const [k,f] of [['m','modo'],['d','dificultad']]){if(ANS[k]==='*')continue;if(g[f]==null)unk=true;else if(g[f]!==ANS[k])return -1}
+  if(ANS.y!=='*'){const t=g.tipos||[];if(!t.length)unk=true;else if(!t.includes(ANS.y))return -1}
+  return unk?0:1}
+/* ---------- Marcador ---------- */
+let SSEG='res';
+function vStats(v){
+  setTitle('Marcador');
+  v.innerHTML=`<div class="seg"><button data-s="res">Resumen</button><button data-s="jue">Por juego</button><button data-s="his">Historial</button></div><div id="sv"></div>`;
+  v.querySelectorAll('[data-s]').forEach(b=>{b.classList.toggle('on',b.dataset.s===SSEG);b.onclick=()=>{SSEG=b.dataset.s;render()}});
+  const out=$('#sv');
+  if(SSEG==='res'){const s=globalStats();const tot=s.P+s.L+s.E;
+    const ranking=DB.juegos.map(g=>({g,n:gameStats(g.id).partidas})).filter(x=>x.n).sort((a,b)=>b.n-a.n).slice(0,10);const mx=ranking[0]?.n||1;
+    out.innerHTML=`<div class="card"><div class="score"><div><div class="who" style="color:var(--p)">Pablo</div><div class="n">${s.P}</div></div><div class="vs">vs</div><div><div class="who" style="color:var(--l)">Leticia</div><div class="n">${s.L}</div></div></div>
+    ${tot?`<div class="bar" style="margin-top:12px"><i style="width:${s.P/tot*100}%;background:var(--p)"></i><i style="width:${s.E/tot*100}%;background:var(--draw)"></i><i style="width:${s.L/tot*100}%;background:var(--l)"></i></div>`:''}
+    <p class="muted small" style="margin:10px 0 0">Victorias. ${s.partidas} partidas en total, ${s.E} empates. Incluye el saldo inicial.</p></div>
+    <div class="card"><b>Suma de puntos</b><div class="row" style="margin-top:8px"><span class="chip p">Pablo ${s.puntosP}</span><span class="chip l">Leticia ${s.puntosL}</span></div>
+    <p class="muted small" style="margin:8px 0 0">Solo partidas registradas en la app con puntos de los dos (${s.conPuntos}). El saldo inicial no tiene puntos.</p></div>
+    <h3>Juegos más jugados</h3><div class="list">${ranking.map(({g,n})=>`<button class="item" data-id="${g.id}"><div class="t"><b>${esc(g.nombre)}</b><div class="bar" style="margin-top:6px"><i style="width:${n/mx*100}%;background:var(--accent)"></i></div></div><div class="badge">${n}</div></button>`).join('')||'<div class="empty">Sin partidas todavía.</div>'}</div>`;
+  } else if(SSEG==='jue'){
+    const a=DB.juegos.map(g=>({g,s:gameStats(g.id)})).filter(x=>x.s.partidas).sort((x,y)=>y.s.partidas-x.s.partidas||cmpN(x.g,y.g));
+    out.innerHTML=a.length?`<div class="list">${a.map(({g,s})=>`<button class="item" data-id="${g.id}"><div class="t"><b>${esc(g.nombre)}</b><span class="muted small">${s.partidas} partidas${s.record?` · Récord ${s.record.v} (${pname(s.record.who)})`:''}${s.ultima?` · Última: ${fmtDate(s.ultima)}`:''}</span></div><span class="chip p">${s.P}</span><span class="chip l">${s.L}</span>${s.E?`<span class="chip">${s.E}</span>`:''}</button>`).join('')}</div>`:'<div class="empty">Sin partidas todavía.</div>';
+  } else {
+    const a=[...DB.partidas].sort((x,y)=>y.fecha.localeCompare(x.fecha)||y.ts-x.ts);
+    out.innerHTML=a.length?`<div class="list">${a.map(rowPartida).join('')}</div>`:'<div class="empty">Aún no hay partidas registradas en la app. El saldo inicial no aparece aquí porque no tiene fechas.</div>';
+    out.querySelectorAll('[data-pid]').forEach(b=>b.onclick=()=>editPartida(b.dataset.pid));
+  }
+  out.querySelectorAll('[data-id]').forEach(b=>b.onclick=()=>push(x=>vFicha(x,b.dataset.id)));
+}
+
+/* ---------- Jugar (partida en curso, ideales y copia) ---------- */
+let ISEG='4';
+function vJugar(v){
+  setTitle('Jugar');
+  const live=LIVEST&&game(LIVEST.juego); const lt=live?liveTotals():null;
+  const keys=Object.keys(DB.ideal||{});if(!keys.includes(ISEG))ISEG=keys[0];
+  v.innerHTML=`${live?`<button class="card row" id="liveB" style="width:100%;border:0;text-align:left;cursor:pointer">${cover(live)}<div class="t" style="flex:1;min-width:0"><b>Partida en curso</b><div class="muted small">${esc(live.nombre)} · Pablo ${lt.P} · Leticia ${lt.L}</div></div><span class="chip">Abrir</span></button>`
+    :`<p class="muted small" style="margin:0 0 10px">Para jugar, entra en un juego y pulsa Contador o Apuntar ganador.</p>`}
+  <h3 style="margin-top:4px">Juegos ideales por nº de jugadores</h3>
+  ${keys.length?`<div class="seg">${keys.map(k=>`<button data-i="${k}" class="${k===ISEG?'on':''}">${k}</button>`).join('')}</div>
+  <div class="list">${(DB.ideal[ISEG]||[]).map(id=>game(id)).filter(Boolean).sort((a,b)=>cmpN(a,b)).map(g=>`<button class="item" data-id="${g.id}">${cover(g)}<div class="t"><b>${esc(g.nombre)}</b><span class="muted small">${esc(metaTxt(g))}</span></div><div class="badge">${fmtNota(g.nota)}</div></button>`).join('')}</div>`:'<div class="empty">No hay lista cargada.</div>'}
+  <h3>Copia de seguridad</h3>
+  <div class="card stack"><p style="margin:0" class="muted">Los datos solo están en este iPhone. Si borras la app de la pantalla de inicio, se pierden. Exporta una copia de vez en cuando y guárdala en Archivos. La copia incluye tus fotos de carátulas.</p>
+  <button class="btn primary block" id="exp">Exportar copia (JSON)</button><button class="btn block" id="imp">Importar archivo</button>
+  <p class="small muted" style="margin:0" id="pst"></p></div>
+  <p class="muted small" style="text-align:center">${DB.juegos.length} juegos · ${DB.partidas.length} partidas registradas</p>`;
+  if(live)$('#liveB').onclick=()=>push(vLive);
+  v.querySelectorAll('[data-i]').forEach(b=>b.onclick=()=>{ISEG=b.dataset.i;render()});
+  v.querySelectorAll('[data-id]').forEach(b=>b.onclick=()=>push(x=>vFicha(x,b.dataset.id)));
+  $('#exp').onclick=exportData;$('#imp').onclick=pickImport;
+  if(navigator.storage&&navigator.storage.persisted)navigator.storage.persisted().then(p=>{const e=$('#pst');if(e)e.textContent=p?'Almacenamiento persistente: concedido.':'Almacenamiento persistente: no concedido por el sistema.'}).catch(()=>{});
+}
+async function exportData(){
+  const d=Object.assign({},DB,{exportado:new Date().toISOString(),fotos:FOTOS});
+  const name='ludoteca-copia-'+today()+'.json';
+  const blob=new Blob([JSON.stringify(d)],{type:'application/json'});
+  try{const f=new File([blob],name,{type:'application/json'});
+    if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f],title:name});return}}catch(e){if(e&&e.name==='AbortError')return}
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1000);
+}
+function pickImport(){const i=$('#fileIn');i.value='';i.click()}
+async function replaceAll(d){
+  DB={app:'ludoteca',version:2,jugadores:PL,juegos:d.juegos,saldo:d.saldo||{},partidas:d.partidas||[],ideal:d.ideal||{}};migrate();save();
+  await fotosClear(); if(d.fotos)for(const id in d.fotos)await fotoSet(id,d.fotos[id]);
+  STACK=[];TAB='biblioteca';render();toast(`Importados ${d.juegos.length} juegos y ${(d.partidas||[]).length} partidas`);
+}
+async function mergeData(d){
+  const FIELDS=['jmin','jmax','tmin','tmax','edad','dificultad','modo','imagen','fuente','fuentes','notas'];
+  let nuevos=0,completados=0,pn=0;
+  for(const src of d.juegos){
+    const s=Object.assign({},src); if(!Array.isArray(s.tipos))s.tipos=s.tipo?[s.tipo]:[]; delete s.tipo;
+    const g=game(s.id);
+    if(!g){DB.juegos.push(Object.assign({nota:null,rondas:false,imagen:null},s));nuevos++;continue}
+    let ch=false;
+    for(const k of FIELDS){if((g[k]==null||g[k]==='')&&s[k]!=null&&s[k]!==''){g[k]=s[k];ch=true}}
+    if(s.tipos.length&&(!g.tipos||!g.tipos.length||g.tiposLegacy)){g.tipos=s.tipos;delete g.tiposLegacy;ch=true}
+    if(Array.isArray(s.forzar))for(const k of s.forzar){if(s[k]!==undefined&&JSON.stringify(g[k])!==JSON.stringify(s[k])){g[k]=s[k];ch=true}}
+    if(ch)completados++;
+  }
+  if(d.saldo)for(const id in d.saldo)if(!DB.saldo[id]&&game(id))DB.saldo[id]=d.saldo[id];
+  if(d.ideal&&!Object.keys(DB.ideal||{}).length)DB.ideal=d.ideal;
+  if(Array.isArray(d.partidas)){const have=new Set(DB.partidas.map(p=>p.id));for(const p of d.partidas)if(!have.has(p.id)&&game(p.juego)){DB.partidas.push(p);pn++}}
+  if(d.fotos)for(const id in d.fotos)if(!FOTOS[id])await fotoSet(id,d.fotos[id]);
+  save();STACK=[];TAB='biblioteca';render();
+  toast(`${nuevos} juegos nuevos · ${completados} fichas completadas${pn?` · ${pn} partidas añadidas`:''}`);
+}
+$('#fileIn').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();
+  r.onload=()=>{let d;try{d=JSON.parse(r.result)}catch(x){toast('El archivo no es un JSON válido');return}
+    if(!d||d.app!=='ludoteca'||!Array.isArray(d.juegos)){toast('Este archivo no es de Ludoteca');return}
+    const hasData=DB&&(DB.juegos.length||DB.partidas.length);
+    if(!hasData){replaceAll(d);return}
+    const fichas=d.tipo==='fichas'||!Array.isArray(d.partidas);
+    modal(`<h2>¿Cómo importo este archivo?</h2><p class="muted" style="margin-top:-6px">${d.juegos.length} juegos${fichas?'':`, ${d.partidas.length} partidas`}.</p>
+    <div class="stack"><button class="btn primary block" id="iM">Combinar</button><p class="small muted" style="margin:0">Añade los juegos nuevos y completa los datos vacíos de las fichas. No toca tus partidas, tu nota ni tus fotos.</p>
+    ${fichas?'':`<button class="btn danger block" id="iR">Reemplazar todo</button><p class="small muted" style="margin:0">Borra todo lo de este iPhone y deja solo lo del archivo.</p>`}
+    <button class="btn block" onclick="closeModal()">Cancelar</button></div>`,
+    s=>{s.querySelector('#iM').onclick=()=>{closeModal();mergeData(d)};const R=s.querySelector('#iR');if(R)R.onclick=()=>{closeModal();confirmBox('¿Seguro? Se borrará todo lo que hay ahora en este iPhone.','Reemplazar',()=>replaceAll(d),true)}});
+  };
+  r.readAsText(f)};
+$('#camIn').onchange=async e=>{const f=e.target.files[0];const id=CAMFOR;if(!f||!id)return;
+  try{const u=await resizePhoto(f);await fotoSet(id,u);render();toast('Foto guardada')}catch(x){toast('No se ha podido usar esa imagen')}};
+
+/* ---------- init ---------- */
+load();
+if(navigator.storage&&navigator.storage.persist)navigator.storage.persist().catch(()=>{});
+fotosLoad().then(()=>{if(LIVEST&&DB&&game(LIVEST.juego)){TAB='jugar';STACK=[vLive]}render()});
+render();
+</script>
+</body>
+</html>
